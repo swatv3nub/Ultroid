@@ -27,6 +27,7 @@ async def alvcs(event):
             [Button.inline("Alive Text", data="alvtx")],
             [Button.inline("Alive Media", data="alvmed")],
             [Button.inline("Delete Alive Media", data="delmed")],
+            [Button.inline("« Back", data="allcstms")]
         ],
     )
 
@@ -94,20 +95,21 @@ async def dell(event):
         return await event.edit("Something went wrong...")
 
 
-@callback("alvcstmm")
+@callback("pmcstm")
 @owner
 async def alvcs(event):
     await event.edit(
         "Customise your PMPERMIT Settings -",
         buttons=[
-            [Button.inline("PM Text", data="alvtxx")],
-            [Button.inline("Pm Media", data="alvmedd")],
-            [Button.inline("Delete PM Media", data="delmedd")],
+            [Button.inline("PM Text", data="pmtxt")],
+            [Button.inline("Pm Media", data="pmmed")],
+            [Button.inline("Delete PM Media", data="delpmmed")],
+            [Button.inline("« Back", data="allcstms")]
         ],
     )
 
 
-@callback("alvtxx")
+@callback("pmtxt")
 @owner
 async def name(event):
     await event.delete()
@@ -128,7 +130,7 @@ async def name(event):
             await conv.send_message("{} changed to {}\n\nDo {}restart".format(name, themssg, Var.HNDLR))
 
 
-@callback("alvmedd")
+@callback("pmmed")
 @owner
 async def media(event):
     await event.delete()
@@ -160,7 +162,7 @@ async def media(event):
         await conv.send_message("{} has been set.".format(name))
 
 
-@callback("delmedd")
+@callback("delpmmed")
 @owner
 async def dell(event):
     try:
